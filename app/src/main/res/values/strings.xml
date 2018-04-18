@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">HclPocApp</string>
+    <string name="app_name">Property App</string>
+    <string name="retry">Retry</string>
+    <string name="unknown_error">Unknown Error</string>
 </resources>
