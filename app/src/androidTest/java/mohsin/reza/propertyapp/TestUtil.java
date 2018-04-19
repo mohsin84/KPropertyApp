@@ -10,7 +10,6 @@ import mohsin.reza.propertyapp.vo.Photo;
 import mohsin.reza.propertyapp.vo.Property;
 
 public class TestUtil {
-    final static int id = 1;
 
     public static List<Property> createProperties(int count) {
         List<Property> propertyList = new ArrayList<>();
@@ -22,8 +21,8 @@ public class TestUtil {
                     "Sydney", "NSW", "2000", "Australia", -33.2719708228076,
                     151.403204079771, "Sydney, NEW SOUTH WALES, 2000, Australia");
 
-            propertyList.add(createProperty(1 + i, 1 + i, i % 2 == 0, "private", "Property " + i,
-                    1 + i, 1 + i, 2, "Property description " + i, 100000.00 + i, owner,
+            propertyList.add(createProperty(1 + i, 1 + i, i % 2 == 0, "private", "Property" + i,
+                    1 + i, 1 + i, 2, "Property description " + i, 100000.00, owner,
                     location, photo));
         }
         return propertyList;

@@ -37,6 +37,6 @@ public class PropertyAdapter extends DataBoundListAdapter<Property, PropertyItem
 
     @Override
     protected boolean areContentsTheSame(Property oldItem, Property newItem) { //avoid replacing same content
-        return Objects.equals(oldItem.title, newItem.title) && Objects.equals(oldItem.location, newItem.location);
+        return Objects.equals(oldItem.title, newItem.title);
     }
 }

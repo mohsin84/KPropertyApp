@@ -5,8 +5,8 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "mohsin.reza.propertyapp"
-        minSdkVersion 18
-        targetSdkVersion 26
+        minSdkVersion 16
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "mohsin.reza.propertyapp.PropertyAppTestRunner"

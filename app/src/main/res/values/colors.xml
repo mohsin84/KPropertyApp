@@ -4,5 +4,11 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorLightGray">#DCDCDC</color>
-    <color name="ivory">#FFDEAD</color>
+    <color name="facebookGray">#F7F7F7</color>
+    <color name="navajowhite">#FFDEAD</color>
+    <color name="ivory">#FFFAF0</color>
+    <color name="linen">#FAF0E6</color>
+    <color name="floralwhite">#FFFAF0</color>
+    <color name="ghostwhite">#F8F8FF</color>
+    <color name="snowWhite">#FFFAFA</color>
 </resources>

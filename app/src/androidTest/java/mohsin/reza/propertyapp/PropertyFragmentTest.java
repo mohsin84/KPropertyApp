@@ -42,6 +42,7 @@ public class PropertyFragmentTest {
 
     private MutableLiveData<Resource<List<Property>>> propertyListData = new MutableLiveData<>();
 
+
     @Before
     public void init() throws Throwable {
         EspressoTestUtil.disableProgressBarAnimations(activityRule);
@@ -75,7 +76,7 @@ public class PropertyFragmentTest {
 
     @Test
     public void loadedRowList() {
-        List<Property> propertyList = setPropertyList(5);
+        List<Property> propertyList = setPropertyList(2);
         for (int pos = 0; pos < propertyList.size(); pos++) {
             Property property = propertyList.get(pos);
             onView(listMatcher().atPosition(pos)).check(
