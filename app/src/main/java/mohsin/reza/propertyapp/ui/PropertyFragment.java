@@ -21,7 +21,7 @@ import mohsin.reza.propertyapp.di.Injectable;
 import mohsin.reza.propertyapp.util.AutoClearedValue;
 import mohsin.reza.propertyapp.vo.Status;
 
-public class PropertyFragment extends Fragment implements Injectable {
+public class PropertyFragment extends Fragment implements Injectable, PropertyAdapter.OnProItemClickListener {
 
     @Inject
     public ViewModelProvider.Factory viewModelFactory;
@@ -52,14 +52,14 @@ public class PropertyFragment extends Fragment implements Injectable {
         super.onViewCreated(view, savedInstanceState);
 
         propertyViewModel = ViewModelProviders.of(this, viewModelFactory).get(PropertyViewModel.class);
-        PropertyAdapter propertyAdapter = new PropertyAdapter(dataBindingComponent);
+        PropertyAdapter propertyAdapter = new PropertyAdapter(dataBindingComponent, this);
 
         binding.get().propertyList.setAdapter(propertyAdapter); //setting adapter for recyclerList
         adapter = new AutoClearedValue<>(this, propertyAdapter);
 
         binding.get().swiperefresh.setOnRefreshListener(() -> {
             propertyViewModel.setRefresh(true); //To reload data from network otherwise it will just show existing data
-                                                // from viewModel
+            // from viewModel
             adapter.get().replace(null);
             getLiveDataFromViewModel();
         });
@@ -82,5 +82,16 @@ public class PropertyFragment extends Fragment implements Injectable {
             if (binding.get().swiperefresh.isRefreshing())
                 binding.get().swiperefresh.setRefreshing(false);//once data stream is coming stop loading dialog
         });
+    }
+
+    @Override
+    public void onPropertyClick(String property) {
+        if (getActivity() instanceof BackToActivity) {
+            ((BackToActivity) getActivity()).onBackToActivity(property);
+        }
+    }
+
+    public interface BackToActivity {
+        void onBackToActivity(String property);
     }
 }

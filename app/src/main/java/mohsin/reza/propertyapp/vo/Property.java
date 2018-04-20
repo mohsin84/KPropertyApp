@@ -7,9 +7,11 @@ import android.arch.persistence.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 @Entity(indices = {@Index(value = {"title"}, unique = true)})
 //This PoJO is also entity for room database.
-public class Property {
+public class Property implements Serializable{
 
     @PrimaryKey(autoGenerate = true)
     public final int pid;    //using auto generated key since id can be same
