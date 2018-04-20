@@ -13,6 +13,8 @@ Lazy loading is achieved using <a href="http://bumptech.github.io/glide/"> Glide
 Glide I resized bitmap before loading into imageView along with cropping for faster imageLoad. By deafult all images will be loaded to 
 memory. Disk cache is also possible with few strategy for caching (did not added any disk cache in this project).
 
+Added RTL support to mirror drawables, layouts, text alignments. Used CardView for slick design and ConstraintLayout for optimized Layout.
+
 <b>List of android libraries used</b>
 <ol>
   <li><a href="https://developer.android.com/topic/libraries/architecture/index.html">Android Architecture Components</a></li>
