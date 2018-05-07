@@ -77,7 +77,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="@dimen/cell_margin"
                 android:gravity="center"
-                android:text='@{TextUtils.GetOwnerFullName(property.owner)}'
+                android:text='@{@string/owner_full_Name(property.owner.firstName,property.owner.lastName)}'
                 android:textColor="@android:color/primary_text_light"
                 android:textSize="8dp"
                 app:layout_constraintEnd_toEndOf="@id/avatar_image"
@@ -111,10 +111,10 @@
                 android:layout_marginEnd="@dimen/default_margin"
                 android:layout_marginStart="@dimen/default_margin"
                 android:layout_marginTop="@dimen/row_margin"
-                android:text="@{TextUtils.GetPropertyAddress(property.location)}"
                 android:textAlignment="viewStart"
                 android:textColor="@android:color/primary_text_light"
                 android:textDirection="locale"
+                android:text='@{@string/property_full_address(property.location.address_1, property.location.address_2, property.location.fullAddress)}'
                 app:layout_constraintEnd_toStartOf="@id/avatar_image"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/title"

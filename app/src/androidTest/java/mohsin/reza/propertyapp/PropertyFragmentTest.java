@@ -46,18 +46,18 @@ public class PropertyFragmentTest {
     @Before
     public void init() throws Throwable {
         EspressoTestUtil.disableProgressBarAnimations(activityRule);
-        PropertyFragment fragment = PropertyFragment.create();
+        PropertyFragment fragment = PropertyFragment.Companion.create();
         viewModel = mock(PropertyViewModel.class);
         when(viewModel.getPropertyLiveData()).thenReturn(propertyListData);
 
-        fragment.viewModelFactory = ViewModelUtil.createFor(viewModel);
+        fragment.setViewModelFactory(ViewModelUtil.createFor(viewModel));
         activityRule.getActivity().setFragment(fragment);
-        activityRule.runOnUiThread(() -> fragment.binding.get().propertyList.setItemAnimator(null));
+        activityRule.runOnUiThread(() -> fragment.getBinding().get().propertyList.setItemAnimator(null));
     }
 
     @Test
     public void loading() {
-        propertyListData.postValue(Resource.loading(null));
+        propertyListData.postValue(Resource.Companion.loading(null));
         onView(withId(R.id.load_more_bar)).check(matches(isDisplayed()));
         onView(withId(R.id.retry)).check(matches(not(isDisplayed())));
     }
@@ -65,7 +65,7 @@ public class PropertyFragmentTest {
     @Test
     public void errorNoData() throws InterruptedException {
         doNothing().when(viewModel).setRefresh(true);
-        propertyListData.postValue(Resource.error("networkerror", null));
+        propertyListData.postValue(Resource.Companion.error("networkerror", null));
 
         onView(withId(R.id.progress_bar)).check(matches(not(isDisplayed())));
         onView(withId(R.id.error_msg)).check(matches(withText("networkerror")));
@@ -80,13 +80,13 @@ public class PropertyFragmentTest {
         for (int pos = 0; pos < propertyList.size(); pos++) {
             Property property = propertyList.get(pos);
             onView(listMatcher().atPosition(pos)).check(
-                    matches(hasDescendant(withText(property.title))));
+                    matches(hasDescendant(withText(property.getTitle()))));
         }
     }
 
     private List<Property> setPropertyList(int count) {
         List<Property> propertyList = TestUtil.createProperties(count);
-        propertyListData.postValue(Resource.success(propertyList));
+        propertyListData.postValue(Resource.Companion.success(propertyList));
         return propertyList;
     }
 

@@ -2,4 +2,6 @@
     <string name="app_name">Property App</string>
     <string name="retry">Retry</string>
     <string name="unknown_error">Unknown Error</string>
+    <string name="owner_full_Name">%1$s %2$s</string>
+    <string name="property_full_address">%1$s, %2$s, %3$s</string>
 </resources>
